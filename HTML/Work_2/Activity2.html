@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Activity 2</title>
+    </head>
+    <body bgcolor="#E6F2FF">
+        <!-- Your Code for Activity 1 -->
+        <fieldset>
+            
+            <legend><h1>Registration</h1></legend>
+            <form action="ActivityR2.html" method="POST">
+            <header>
+
+            <table border="1" bgcolor="white" align="center"> 
+                <tr>
+                    <th colspan = "2" >
+                        <h1>Please fill in your personal info</h1>
+                    </th>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <b>Student ID</b>
+                    </td>
+                    <td>
+                        <input type="text" name="stuid" maxlenght="7" pattern="[0-9]{7}">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <b>First name</h2>
+                    </td>
+                    <td>
+                        <input type="text" name="stu_fname" pattern="[a-Z]">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <b>Last name</b>
+                    </td>
+                    <td>
+                        <input type="text" name="stu_lname" pattern="[a-Z]">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <b>Barthday</b>
+                    </td>
+                    <td>
+                        <input type="date" name="bd_dt" value="dd/mm/yyyy">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <b>Gender</b>   
+                    </tdalign="center">
+                    <td>
+                        <input type="radio" name="sex" value="male" checked> Male
+                        <input type="radio" name="sex" value="female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <b>Hobbies</b>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="drawing">Drawing<br>
+                        <input type="checkbox" name="hiking">Hiking<br>
+                        <input type="checkbox" name="programming">Programming<br>
+                        <input type="checkbox" name="photography">Photography<br>
+                        <input type="checkbox" name="running">Running
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <b>E-mail</b>
+                    </td>
+                    <td>
+                        <input type="email" name="stu_amail" value="---E-mail---" required>
+                    </td>
+                </tr>
+                
+            </table>
+            <br>
+            </header>
+            <footer align="center">
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </footer>
+
+                
+            </form>
+        </fieldset>
+    </body>
+</html>
