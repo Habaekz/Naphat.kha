@@ -1,0 +1,190 @@
+    /* box-sizing: border-box;
+    - The width and height properties 
+    (and min/max properties) includes content,
+     padding and border*/
+    * {
+    box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the header */
+    header {
+        padding: 5px;
+        text-align: center;
+    
+    }
+
+    header h2{
+        font-size: 4em;
+        margin: 5px;
+
+    }
+        
+    /* Create three unequal columns that floats next to each other */
+    .column {
+        
+        float: left;
+        padding: 5px;
+        
+    }
+
+    /* Left and right column */
+    .column.side {
+        width: 25%;
+        font-size:22px;
+    }
+
+    /* Middle column */
+    .column.middle {
+        width: 50%;  
+        
+        
+
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the footer */
+    footer {
+        padding: 1px;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+
+    /* Responsive layout - makes the three columns stack on 
+    top of each other instead of next to each other */
+    @media (max-width: 400px) {
+        .column.side, .column.middle {
+            width: 100%;
+        }
+    }
+
+    /* Style about middle content */
+    .content {
+        overflow: hidden;
+        text-align: justify;
+        padding-right: 20px;
+        padding-left: 20px;
+        margin: 5px;
+        border-radius: 15px;
+        border-style: dashed;
+        border-color: Black;
+        
+    }
+
+    .content h2{
+        text-align: left;
+        
+    }
+
+    .content p{
+        float: left;
+        margin-top: 0px;
+        
+    }
+
+    /* Middle images styles */
+    .photo{
+        display: block;
+        margin: 5px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .pic {
+        float: left;
+        margin: 5px;
+        border-radius: 10px;
+        width: 30%;
+        height: 150px;
+        
+        
+    }
+
+    /* Navigation bar */
+    nav {
+        font-size:20px;
+        overflow: hidden;
+        background-color: #404040;
+    }
+
+    nav a{
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    } 
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+      
+    li {
+        float: left;
+        opacity: 0.5;
+    }
+      
+    li a {
+        
+        display: block;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+      
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        opacity: 1.0;
+        background-color: #111;
+    }
+
+    /* Add a card effect for articles */
+    .card {
+        background-color: yellow;
+        padding: 20px;
+        
+    }
+
+    .card img{
+        border-radius: 15px;
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    /* Feed on the right hand side bar */
+    .feed {
+        margin-top:0px;
+        padding: 15px;
+        background-color: rgb(210, 230, 102);
+        opacity: 0.7;
+        
+    }
+
+    
+  
+    .pic:hover{
+        
+        opacity: 0.3;
+    }
+
+    @keyframes fadeout{
+    to{
+        opacity: 0.5;
+    }
+
+    }
