@@ -1,5 +1,5 @@
 # Hi!, I'm Naphat Khajohn-udomrith
-![Test Image_wall](https://github.com/Habaekz/Naphat.kha/tree/master/Source/Wallpaper2.jpg)
+![Test Image_wall](Source/Wallpaper2.jpg)
 ## About myself
 I am undergraduate from Faculty of Information and Communication Technology Student at Mahidol University [ MUICT : Computer Science ]. 
 ## How I work
