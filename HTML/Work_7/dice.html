@@ -1,0 +1,132 @@
+<style>
+    #dice {
+        font-size: 4.6rem;
+    }
+    
+    div {
+        text-align: center;
+    }
+    
+    .numberInput {
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .box {
+        display: box;
+        height: 1000px;
+        display: -moz-box;
+        -moz-box-orient: horizontal;
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        display: box;
+        box-orient: horizontal;
+    }
+    
+    .box .column1 {
+        -moz-box-flex: 1.0;
+        -webkit-box-flex: 1.0;
+        -ms-flex: 1.0;
+        box-flex: 1.0;
+        background: #FDF3E7;
+    }
+    
+    .box .column2 {
+        -moz-box-flex: 1.0;
+        -webkit-box-flex: 1.0;
+        -ms-flex: 1.0;
+        box-flex: 1.0;
+    }
+    
+    #searchResult {
+        font-size: 1.5rem;
+        text-align: left;
+        padding-left: 30px
+    }
+</style>
+<div class="box">
+    <div class="column1">
+        <br />
+        <h1>Dice Roller</h1>
+
+        <h2>Please input number of round</h2>
+        <input type="number" min="1" value="1" class="numberInput" id="roundInput">
+        <input id="rollbtn" type="button" class="numberInput" value="Roll">
+        <div id="dice"></div>
+    </div>
+    <div class="column2">
+        <br />
+        <h1>Search</h1>
+        <h2>Please input #round to search</h2>
+        <input type="number" min="1" value="1" class="numberInput" id=numberInput>
+        <input type="button" class="numberInput" value="Search" id="roundSearch">
+        <div id="searchResult"></div>
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        //Use JQuery to get value from HTML elements
+        //Use JQuery to add events (e.g. click) to HTML elements 
+        //Output the dice faces to <div id="dice"></div>
+        //Output the list of faces for search to <div id="searchResult"></div>
+        $('#rollbtn').click(function(){
+                roundIn = $('#roundInput').val();
+                $('#dice').html(rollTheDice(roundIn));
+             }
+            );
+        
+        $('#roundSearch').click(function(){
+                searchIn = $('#numberInput').val();
+                searchValue = searchTheDice(searchIn);
+                var result = 'Round number: ' + searchIn+"<br/>";
+                for(let i = 1; i <= 3 ; i++){
+                    result += 'Dice '+(i)+ ' = ' + searchValue["dice"+i] + "<br/>";
+                }
+                $('#searchResult').html(result);
+             }
+            );    
+    });
+
+    function rollTheDice(Round) {
+        var i, j,faceValue,output = '',diceCount = 3;
+
+        for (j = 1; j <= Round; j++) {
+            output += j + "." + "&nbsp";
+            let diceFace = [];
+            for (i = 0; i < diceCount; i++) {
+                /*
+                    - Random the face of dice
+                    - Store the data into Local Storage
+                
+                */
+                faceValue = Math.floor(Math.random()*6);
+                diceFace.push(faceValue+1);
+                output += "&#x268" + faceValue + "; "; //Get dice face
+            }
+            var dice = {
+                'dice1' : diceFace[0],
+                'dice2' : diceFace[1],
+                'dice3' : diceFace[2]
+            }
+            if((diceFace[0]+diceFace[1]+diceFace[2]) >= 12)
+                localStorage.setItem(j, JSON.stringify(dice));
+            else
+                localStorage.setItem(j, JSON.stringify({'dice1': "", 'dice2': "",'dice3': ""}));
+            output += "<br/>";
+        }
+
+        return output;
+    }
+
+    function searchTheDice(RoundText) {
+
+        // input: The round that you want to search for faces from Local Storage.
+        
+        // output: The list of faces.
+        return JSON.parse(localStorage.getItem(RoundText));
+    }
+</script>

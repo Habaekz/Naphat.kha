@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+var information = [];
+function submit(){
+    var id = document.getElementById("stdid");
+    var finame = document.getElementById("fname");
+    var laname = document.getElementById("lname");
+}
+
+$(document).ready(function(){
+        $("#submit").click(function(){
+        var information2 = {
+                id: stdid.value,
+                finame: fname.value,
+                laname: lname.value
+        };
+        information.push(information2);
+        console.log(information);
+  });
+});
+
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown("slow");
+  });
+});
+
+</script>
+<style> 
+    #panel, #flip {
+      padding: 5px;
+      text-align: center;
+      background-color: rgb(236, 150, 236);
+      border: solid 1px rgb(110, 0, 110);
+    }
+    
+    #panel {
+      padding: 50px;
+      display: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="flip">Click to slide down panel</div>
+    <div id="panel">
+        <label for="stdid">StudentID:</label>
+        <input type="text" id="stdid" name="stdid">
+        <label for="fname">Firstname:</label>
+        <input type="text" id="fname" name="fname">
+        <label for="lname">Lastname:</label>
+        <input type="text" id="lname" name="lname">
+        <button id="submit" onclick="submit()">submit</button>
+    </div>
+    
+    
+    
+
+
+</body>
+</html>
+
