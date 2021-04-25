@@ -1,0 +1,13 @@
+Login Page:
+
+http://localhost:8080/
+
+Show all user:
+
+http://localhost:8080/all
+
+Database console:
+
+http://localhost:8080/h2-console/login.jsp?jsessionid=23eec1922c3251bde93cf78cbbfc518e
+
+url = jdbc:h2:file:C:/Users/Habaekz/Desktop/MyDrive/MUICT/3rdyear/SE/implementations/demo/test.db

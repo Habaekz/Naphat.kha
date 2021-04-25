@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign Up Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+        body
+        {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: 'Arial';
+        }
+        .login{
+            width: 300px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: grey;
+            border-radius: 15px ;
+        }
+        h2{
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        label{
+            color: black;
+            font-size: 17px;
+        }
+        #Uname{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #Pass{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #name{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #email{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #confirmPass{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #roles{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #log{
+            width: 147px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+        #register{
+            width: 147px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+        span{
+            color: white;
+            font-size: 17px;
+        }
+        a{
+            text-align: center;
+            color: white;
+        }
+        #roles{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #submit{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<h2>SIGNUP PAGE</h2><br>
+<div class="login">
+    <form id="login" method="get" action="login.php">
+        <label><b>Email</b></label>
+        <br><br>
+        <input type="text" name="email" id="email" placeholder="Email" onkeyup="mail_Function()">
+        <span id='message_email'></span>
+        <br><br>
+        <label><b>Name</b></label>
+        <br><br>
+        <input type="text" name="name" id="name" placeholder="Fullname" onkeyup="name_Function()">
+        <span id='message_name'></span>
+        <br><br>
+        <label><b>Username</b></label>
+        <br><br>
+        <input type="text" name="Uname" id="Uname" placeholder="Username" onkeyup="Uname_Function()">
+        <span id='message_uname'></span>
+        <br><br>
+        <label><b>Password</b></label>
+        <br><br>
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">
+        <br><br>
+        <label><b>Confirm Password</b></label>
+        <br><br>
+        <input type="Password" name="confirmPass" id="confirmPass" placeholder="Confirm Password" onkeyup="check();">
+        <span id='message'></span>
+        <br><br>
+        <label for="roles"><b>Choose a role:</b></label>
+        <br><br>
+        <select name="roles" id="roles" onkeyup="Role_Function()">
+            <option value="" disabled selected>- - - Select Role - - -</option>
+            <option value="Astronomer">Astronomer</option>
+            <option value="Science Observer">Science Observer</option>
+            <option value="Operation Staff">Operation Staff</option>
+            <option value="Visitor">Visitor</option>
+            <option value="Supporter">Supporter</option>
+        </select>
+        <span id='message_role'></span>
+        <br><br>
+        <input type="button" name="submit" id="submit" value="Submit" onclick="searchURL();">
+
+
+    </form>
+</div>
+<script>
+
+    var check = function() {
+        if (document.getElementById('Pass').value ==
+            document.getElementById('confirmPass').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password is matching';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password is not matching';
+        }
+    }
+    var mail_Function = function(){
+        if (!document.getElementById('email').value) {
+            document.getElementById('message_email').style.color = 'red';
+            document.getElementById('message_email').innerHTML = 'Fill in the blank';
+        }
+        else
+        {
+            document.getElementById('message_email').style.color = 'green';
+            document.getElementById('message_email').innerHTML = 'Correct';
+        }
+    }
+    var name_Function = function(){
+        if (!document.getElementById('name').value) {
+            document.getElementById('message_name').style.color = 'red';
+            document.getElementById('message_name').innerHTML = 'Fill in the blank';
+        }
+        else
+        {
+            document.getElementById('message_name').style.color = 'green';
+            document.getElementById('message_name').innerHTML = 'Correct';
+        }
+    }
+    var check_uname = function() {
+    if (!document.getElementById('Uname').value) {
+        document.getElementById('message_uname').style.color = 'red';
+        document.getElementById('message_uname').innerHTML = 'Fill in the blank';
+    }
+    else
+    {
+        document.getElementById('message_uname').style.color = 'green';
+        document.getElementById('message_uname').innerHTML = 'Correct';
+    }
+    }
+
+    var check_role = function() {
+    if (document.getElementById('roles').value == "") {
+        document.getElementById('message_role').style.color = 'red';
+        document.getElementById('message_role').innerHTML = 'Fill in the blank';
+    }
+    else
+    {
+        document.getElementById('message_role').style.color = 'green';
+        document.getElementById('message_role').innerHTML = 'Correct';
+    }
+    }
+    var check_passw = function() {
+    if (!document.getElementById('Pass').value) {
+        document.getElementById('message_passw').style.color = 'red';
+        document.getElementById('message_passw').innerHTML = 'Fill in the blank';
+    }
+    else
+    {
+        document.getElementById('message_passw').style.color = 'green';
+        document.getElementById('message_passw').innerHTML = 'Correct';
+    }
+    }
+    var check_confirmpassw = function() {
+    if (!document.getElementById('confirmPass').value) {
+        document.getElementById('message_passw').style.color = 'red';
+        document.getElementById('message_passw').innerHTML = 'Fill in the blank';
+    }
+    else
+    {
+        document.getElementById('message_passw').style.color = 'green';
+        document.getElementById('message_passw').innerHTML = 'Correct';
+    }
+    }
+    function searchURL() {
+        if (document.getElementById('Pass').value == document.getElementById('confirmPass').value) {
+            if(document.getElementById('name').value != null && document.getElementById('email').value != null && document.getElementById('Uname').value != null && document.getElementById('Pass').value != null && document.getElementById('confirmPass').value != null && document.getElementById('roles').value != "")
+            {
+                var uname_input = document.getElementById("Uname").value;
+                var pass_input = document.getElementById("Pass").value;
+                var role_input = document.getElementById("roles").value;
+                var name_input = document.getElementById("name").value;
+                var email_input = document.getElementById("email").value;
+                if (window.confirm("Are you sure for sign up!")) {
+                    alert("Sign Up Complete!");
+                    window.location = "http://localhost:8080/add?username=" + uname_input + "&password=" + pass_input + "&role=" + role_input + "&name=" + name_input + "&email=" + email_input;
+                }
+                else{
+                    alert("Sign Up Fail, Please Try Again!");
+                }
+            }
+            else {
+                alert("Please fill in the blank!");
+                check();
+                mail_Function();
+                name_Function();
+                check_uname();
+                check_role();
+                check_passw();
+                check_confirmpassw();
+            }
+
+        }
+        else
+        {
+            alert("Your password and confirm password is not match!");
+            check();
+        }
+    }
+</script>
+</body>
+</html>

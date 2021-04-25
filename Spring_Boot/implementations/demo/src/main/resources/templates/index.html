@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+        body
+        {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: 'Arial';
+        }
+        .login{
+            width: 300px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: grey;
+            border-radius: 15px ;
+        }
+        h2{
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        label{
+            color: black;
+            font-size: 17px;
+        }
+        #Uname{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #Pass{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #confirmPass{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #roles{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #log{
+            width: 147px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+        #register{
+            width: 147px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+        span{
+            color: white;
+            font-size: 17px;
+        }
+        a{
+            text-align: center;
+            color: white;
+        }
+        #roles{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #submit{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<h2>LOGIN PAGE</h2><br>
+<div class="login">
+    <form id="login" method="get" action="login.php">
+        <label><b>Username</b></label>
+        <br><br>
+        <input type="text" name="Uname" id="Uname" placeholder="Username" onkeyup="check_uname();">
+        <span id='message_uname'></span>
+        <br><br>
+
+        <label><b>Password</b></label>
+        <br><br>
+        <input type="Password" name="Pass" id="Pass" placeholder="Password" onkeyup="check_passw();">
+        <span id='message_passw'></span>
+        <br><br>
+
+        <label for="roles"><b>Choose a role:</b></label>
+        <br><br>
+        <select name="roles" id="roles" onkeyup="Role_Function()">
+            <option value="" disabled selected>- - - Select Role - - -</option>
+            <option value="Astronomer">Astronomer</option>
+            <option value="Science Observer">Science Observer</option>
+            <option value="Operation Staff">Operation Staff</option>
+            <option value="Visitor">Visitor</option>
+            <option value="Supporter">Supporter</option>
+        </select>
+        <span id='message_role'></span>
+        <br><br>
+        <input type="button" name="register" id="register" onclick="location.href='/signup';" value="Sign Up">
+        <input type="button" name="log" id="log" value="Sign In" onclick="searchURL();">
+        <br><br>
+        <div style="text-align: center"><a href="/forgotPass">Forgot your password?</a></div>
+
+    </form>
+</div>
+<script>
+
+    var check_uname = function() {
+    if (!document.getElementById('Uname').value) {
+        document.getElementById('message_uname').style.color = 'red';
+        document.getElementById('message_uname').innerHTML = 'Fill in the blank';
+    }
+    else
+    {
+        document.getElementById('message_uname').style.color = 'green';
+        document.getElementById('message_uname').innerHTML = 'Correct';
+    }
+    }
+
+    var check_passw = function() {
+    if (!document.getElementById('Pass').value) {
+        document.getElementById('message_passw').style.color = 'red';
+        document.getElementById('message_passw').innerHTML = 'Fill in the blank';
+    }
+    else
+    {
+        document.getElementById('message_passw').style.color = 'green';
+        document.getElementById('message_passw').innerHTML = 'Correct';
+    }
+    }
+
+    var check_role = function() {
+    if (document.getElementById('roles').value == "") {
+        document.getElementById('message_role').style.color = 'red';
+        document.getElementById('message_role').innerHTML = 'Fill in the blank';
+    }
+    else
+    {
+        document.getElementById('message_role').style.color = 'green';
+        document.getElementById('message_role').innerHTML = 'Correct';
+    }
+    }
+    function searchURL() {
+        if (document.getElementById('Uname').value != null && document.getElementById('Pass').value != null && document.getElementById('roles').value != "") {
+
+            var uname_input = document.getElementById("Uname").value;
+            var pass_input = document.getElementById("Pass").value;
+            var role_input = document.getElementById("roles").value;
+            if (window.confirm("Are you sure for sign in!")) {
+                window.location = "http://localhost:8080/login_complete?username=" + uname_input + "&password=" + pass_input + "&role=" + role_input;
+            } else {
+                alert("Please Try Again!");
+            }
+
+        }
+        else
+        {
+            alert("Please fill in the blank!");
+            check_uname();
+            check_passw();
+            check_role();
+        }
+    }
+</script>
+</body>
+</html>

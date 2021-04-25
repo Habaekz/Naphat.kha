@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Forget Password</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <style type="text/css">
+        body
+        {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: 'Arial';
+        }
+        .login{
+            width: 300px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: grey;
+            border-radius: 15px ;
+        }
+        h2{
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        label{
+            color: black;
+            font-size: 17px;
+        }
+        #Uname{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #Pass{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #email{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #confirmPass{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #roles{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #log{
+            width: 147px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+        #register{
+            width: 147px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+        span{
+            color: white;
+            font-size: 17px;
+        }
+        a{
+            text-align: center;
+            color: white;
+        }
+        #roles{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #submit{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<h2>FORGET PASSWORD</h2><br>
+<div class="login">
+    <form id="login" method="get" action="login.php">
+        <label><b>Username</b></label>
+        <br><br>
+        <input type="text" name="Uname" id="Uname" placeholder="Username" onkeyup="check();">
+        <span id='message'></span>
+        <br><br>
+        <label><b>Email</b></label>
+        <br><br>
+        <input type="text" name="email" id="email" placeholder="Email" onkeyup="mail_Function()">
+        <span id='message_email'></span>
+        <br><br>
+        <input type="button" name="submit" id="submit" value="Submit" onclick="searchURL();">
+
+    </form>
+</div>
+
+<script>
+
+    $(document).ready(function(){
+        alert("This User does not exist in server!!!\n\nPlease Sign Up First");
+    });
+    var check = function() {
+    if (!document.getElementById('Uname').value){
+        document.getElementById('message_email').style.color = 'red';
+        document.getElementById('message_email').innerHTML = 'Fill in the blank';
+    } else {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'Username is ready to check';
+    }
+}
+    var mail_Function = function(){
+        if (!document.getElementById('email').value) {
+            document.getElementById('message_email').style.color = 'red';
+            document.getElementById('message_email').innerHTML = 'Fill in the blank';
+        }
+        else
+        {
+            document.getElementById('message_email').style.color = 'green';
+            document.getElementById('message_email').innerHTML = 'Correct';
+        }
+    }
+    function searchURL() {
+
+        if (document.getElementById('Uname').value != null && document.getElementById('email').value != null) {
+
+            var uname_input = document.getElementById("Uname").value;
+            var email_input = document.getElementById("email").value;
+            if (window.confirm("Are You Sure!")) {
+                alert("Sent verify code to "+email_input+"!");
+                window.location = "http://localhost:8080/forgotPass/id?username=" + uname_input;
+            } else {
+                alert("Please Try Again!");
+            }
+
+        }
+        else
+        {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Incorrect';
+            alert("Please Put Your Username!");
+        }
+    }
+</script>
+</body>
+</html>
