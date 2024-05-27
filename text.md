@@ -19,3 +19,28 @@ redmine:
     - ./data/redmine/config/configuration.yml:/usr/src/redmine/config/configuration.yml
     - ./data/redmine/config/locales/en.yml:/usr/src/redmine/config/locales/en.yml
 ````
+````
+version: '3'
+services:
+  redmine:
+    image: redmine:4.2.3  # Update to the desired version
+    ports:
+      - "3000:3000"
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: your_password
+    volumes:
+      - redmine_data:/usr/src/redmine/files
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: your_password
+      MYSQL_DATABASE: redmine
+      MYSQL_USER: redmine
+      MYSQL_PASSWORD: your_password
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  redmine_data:
+  db_data:
+````
