@@ -57,12 +57,12 @@ volumes:
 Before running `docker-compose`, create the external volumes manually using the following commands:
 
 ```bash
-docker volume create --name postgres_data
-docker volume create --name sonarqube_conf
-docker volume create --name sonarqube_data
-docker volume create --name sonarqube_extensions
-docker volume create --name sonarqube_logs
-docker volume create --name sonarqube_temp
+sudo docker volume create --name postgres_data
+sudo docker volume create --name sonarqube_conf
+sudo docker volume create --name sonarqube_data
+sudo docker volume create --name sonarqube_extensions
+sudo docker volume create --name sonarqube_logs
+sudo docker volume create --name sonarqube_temp
 ```
 
 ## Step 3: Run Docker Compose
