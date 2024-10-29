@@ -81,3 +81,5 @@ docker-compose up -d
 ---
 
 With this setup, your data will persist even when the containers are restarted or removed, preventing data loss.
+
+ฬ https://medium.com/@denis.verkhovsky/sonarqube-with-docker-compose-complete-tutorial-2aaa8d0771d4
