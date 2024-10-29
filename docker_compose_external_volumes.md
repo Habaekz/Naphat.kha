@@ -82,4 +82,5 @@ docker-compose up -d
 
 With this setup, your data will persist even when the containers are restarted or removed, preventing data loss.
 
-ฬ https://medium.com/@denis.verkhovsky/sonarqube-with-docker-compose-complete-tutorial-2aaa8d0771d4
+> https://medium.com/@denis.verkhovsky/sonarqube-with-docker-compose-complete-tutorial-2aaa8d0771d4
+> https://docs.sonarsource.com/sonarqube/latest/server-upgrade-and-maintenance/upgrade/upgrade-the-server/upgrade/#:~:text=Stop%20your%20old%20SonarQube%20Server.%20Start%20your%20new,instructions.%20Reanalyze%20your%20projects%20to%20get%20fresh%20data.
