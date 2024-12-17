@@ -3,7 +3,7 @@ version: "3"
 services:
 
   reverse_proxy:
-    image: ndidth/nginx:1.26.2-alpine
+    image: nginx:1.26.2-alpine
     container_name: reverse_proxy
     restart: unless-stopped
     ports:
